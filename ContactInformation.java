@@ -3,7 +3,7 @@ package contacts;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class ContactInformation {
+public abstract class ContactInformation {
 
     protected String name;
     protected String phoneNumber;
@@ -33,17 +33,13 @@ public class ContactInformation {
         return this.name;
     }
 
-    protected void printInfo() {
-        this.printInfo();
-    }
 
-    protected void getEditable(Scanner scanner) {
-        this.getEditable(scanner);
-    }
+    public abstract void getEditable(Scanner scanner);
 
-    protected String getSearchableName() {
-        return getName();
-    }
+    public abstract String getSearchableName();
+
+    public abstract void printInfo();
+
 
     public String toString() {
         return this.name;
