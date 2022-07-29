@@ -6,44 +6,40 @@ public class ContactInformation {
 
     protected String name;
     protected String phoneNumber;
-    LocalDateTime dateCreated;
-    LocalDateTime dateEdited;
-
+    protected LocalDateTime dateCreated;
+    protected LocalDateTime dateEdited;
     ContactInformation(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateCreated = LocalDateTime.now().withSecond(0).withNano(0);
         this.dateEdited = this.dateCreated;
     }
-
-
-
-    public String getPhoneNumber() {
+    protected String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public LocalDateTime getDateCreated() {
+    protected LocalDateTime getDateCreated() {
         return dateCreated;
     }
 
-    public LocalDateTime getDateEdited() {
+    protected LocalDateTime getDateEdited() {
         return dateEdited;
     }
 
-    public String getName() {
-        return name;
+    protected String getName() {
+        return this.name;
     }
 
-    public void printInfo() {
+    protected void printInfo() {
         this.printInfo();
     }
 
-    public void getEditable() {
+    protected void getEditable() {
         this.getEditable();
     }
 
-    public String getSearchableName() {
-        return this.name ;
+    protected String getSearchableName() {
+        return getName();
     }
 
     protected void setName(String input) {
