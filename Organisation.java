@@ -34,10 +34,6 @@ public class Organisation extends ContactInformation {
                 getName(), getAddress(), getPhoneNumber(), getDateCreated(), getDateEdited());
     }
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
 
     @Override
     public void getEditable(Scanner scanner) {

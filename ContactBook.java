@@ -135,7 +135,7 @@ public class ContactBook {
         }
     }
 
-    public   String checkDateOfBirthValid(String dateOfBirth) {
+    public String checkDateOfBirthValid(String dateOfBirth) {
         try {
             LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("uuuu-M-d").withResolverStyle(ResolverStyle.STRICT));
         } catch (DateTimeParseException e) {

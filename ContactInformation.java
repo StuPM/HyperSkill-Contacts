@@ -9,12 +9,14 @@ public class ContactInformation {
     protected String phoneNumber;
     protected LocalDateTime dateCreated;
     protected LocalDateTime dateEdited;
+
     ContactInformation(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateCreated = LocalDateTime.now().withSecond(0).withNano(0);
         this.dateEdited = this.dateCreated;
     }
+
     protected String getPhoneNumber() {
         return phoneNumber;
     }
@@ -43,6 +45,9 @@ public class ContactInformation {
         return getName();
     }
 
+    public String toString() {
+        return this.name;
+    }
     protected void setName(String input) {
         this.name = input;
         editDateEdited();
