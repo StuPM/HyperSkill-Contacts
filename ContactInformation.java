@@ -33,17 +33,6 @@ public abstract class ContactInformation {
         return this.name;
     }
 
-
-    public abstract void getEditable(Scanner scanner);
-
-    public abstract String getSearchableName();
-
-    public abstract void printInfo();
-
-
-    public String toString() {
-        return this.name;
-    }
     protected void setName(String input) {
         this.name = input;
         editDateEdited();
@@ -54,6 +43,11 @@ public abstract class ContactInformation {
         editDateEdited();
     }
 
+    public abstract void getEditable(Scanner scanner);
+
+    public abstract String getSearchableName();
+
+    public abstract void printInfo();
     protected void editDateEdited() {
         this.dateEdited = LocalDateTime.now().withSecond(0).withNano(0);
     }
