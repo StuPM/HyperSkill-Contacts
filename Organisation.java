@@ -30,8 +30,8 @@ public class Organisation extends ContactInformation {
 
     @Override
     public void printInfo() {
-        System.out.println("Organization name: " + getName() + "\nAddress: " + getAddress() + "\nNumber: " + getPhoneNumber()
-                + "\nTime created:" + getDateCreated() + "\nTime last edit:" + getDateEdited());
+        System.out.printf("Organization name: %s%nAddress: %s%nNumber: %s%nTime created: %s%nTime last edit: %s%n",
+                getName(), getAddress(), getPhoneNumber(), getDateCreated(), getDateEdited());
     }
 
     @Override

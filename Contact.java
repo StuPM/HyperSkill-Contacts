@@ -91,9 +91,8 @@ public class Contact extends ContactInformation {
     }
     @Override
     public void printInfo() {
-        System.out.println("Name: " + getName() + "\nSurname: " + getSurname() +
-                "\nBirth date: " + getDateOfBirth() + "\nGender: " + getGender() + "\nNumber: " + getPhoneNumber()
-                + "\nTime created:" + getDateCreated() + "\nTime last edit:" + getDateEdited());
+        System.out.printf("Name: %s%nSurname: %s%nBirth date: %s%nGender: %s%nNumber: %s%nTime created: %s%nTime last edit: %s%n",
+                getName(), getSurname(), getDateOfBirth(), getGender(), getPhoneNumber(), getDateCreated(), getDateEdited());
     }
 
     static class Builder {

@@ -98,11 +98,10 @@ public class ContactBook {
 
         System.out.print("[search] Enter action ([number], back, again): ");
         input = scanner.nextLine();
-        if (input.equals("back")) {
-            return;
-        } else if (input.equals("again")) {
+
+        if (input.equals("again")) {
             search(scanner);
-        } else {
+        } else if (!input.equals("back")){
             for (ContactInformation CI : contactInformation) {
                 if (CI.getName().equals(tempCI.get(Integer.parseInt(input) - 1).getName())) {
                     CI.printInfo();
@@ -136,7 +135,7 @@ public class ContactBook {
         }
     }
 
-    private String checkDateOfBirthValid(String dateOfBirth) {
+    public   String checkDateOfBirthValid(String dateOfBirth) {
         try {
             LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("uuuu-M-d").withResolverStyle(ResolverStyle.STRICT));
         } catch (DateTimeParseException e) {
@@ -161,9 +160,7 @@ public class ContactBook {
         System.out.println("[list] Enter action ([number], back):");
         String input = scanner.nextLine();
 
-        if (input.equals("back")) {
-            return;
-        } else {
+        if (!input.equals("back")) {
             ContactInformation tempCI = contactInformation.get(Integer.parseInt(input) - 1);
             tempCI.printInfo();
             System.out.println("\n");
