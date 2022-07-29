@@ -13,6 +13,7 @@ public class Organisation extends ContactInformation {
 
     public void setAddress(String address) {
         this.address = address;
+        this.editDateEdited();
     }
 
     public String getName() {
@@ -48,17 +49,17 @@ public class Organisation extends ContactInformation {
             case "name":
                 System.out.println("Enter name: ");
                 input = scanner.nextLine();
-                this.name = input;
+                this.setName(input);
                 break;
             case "address":
                 System.out.println("Enter address: ");
                 input = scanner.nextLine();
-                this.address = input;
+                this.setAddress(input);
                 break;
             case "number":
                 System.out.println("Enter number: ");
                 input = scanner.nextLine();
-                this.phoneNumber = input;
+                this.setPhoneNumber(input);
                 break;
             default:
                 break;
@@ -101,43 +102,3 @@ public class Organisation extends ContactInformation {
     }
 
 }
-
-
-//
-
-//
-//    private String getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(String input) {
-//        this.address = input;
-//    }
-//
-//    static class Builder {
-//        private String name;
-//        private String phoneNumber;
-//        private String address;
-//
-//        Builder setName(String name) {
-//            this.name = name;
-//            return this;
-//        }
-//
-//        Builder setPhoneNumber(String phoneNumber) {
-//            this.phoneNumber = phoneNumber;
-//            return this;
-//        }
-//
-//        Builder setAddress(String address) {
-//            this.address = address;
-//            return this;
-//        }
-//
-//        Organisation build() {
-//            return new Organisation(name, phoneNumber, address);
-//        }
-//
-//    }
-//
-//}

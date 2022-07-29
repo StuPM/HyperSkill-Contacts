@@ -63,7 +63,7 @@ public class ContactBook {
         String surname = scanner.nextLine();
 
         System.out.print("Enter the birth date: ");
-        String dateOfBirth = checkDateOfBirthValid(scanner.nextLine()); // Check if date is valid yyyy-MM-dd
+        String dateOfBirth = checkDateOfBirthValid(scanner.nextLine());
 
         System.out.print("Enter the gender (M, F): ");
         String gender = checkGenderValid(scanner.nextLine());
@@ -112,7 +112,6 @@ public class ContactBook {
         }
 
     }
-
 
     private String checkNumberValid(String phoneNumber) {
         Pattern pattern = Pattern.compile("^\\+?(\\(\\w+\\)|\\w+[ -]\\(\\w{2,}\\)|\\w+)([ -]\\w{2,})*");
@@ -179,7 +178,8 @@ public class ContactBook {
 
         switch (input) {
             case "edit":
-                editRecord(tempCI, scanner);
+                tempCI.getEditable(scanner);
+                tempCI.printInfo();
                 recordInformation(tempCI, scanner);
                 break;
             case "delete":
@@ -189,69 +189,10 @@ public class ContactBook {
             default:
                 break;
         }
-
     }
-
-    private void editRecord(ContactInformation tempCI, Scanner scanner) {
-        tempCI.getEditable(scanner);
-        tempCI.printInfo();
-
-    }
-
-
-
 
     private void deleteRecord(ContactInformation tempCI) {
         contactInformation.remove(tempCI);
         System.out.println("The record removed!");
     }
 }
-
-
-//
-//    public void info(Scanner scanner) {
-//        if (phonebook.isEmpty()) {
-//            System.out.println("No records to show!");
-//        } else {
-//            int recordToSelect = findRecordToSelect(scanner) - 1;
-//
-//            if (phonebook.get(recordToSelect) instanceof Contact) {
-//                ((Contact) phonebook.get(recordToSelect)).printInfo();
-//            } else if (phonebook.get(recordToSelect) instanceof Organisation) {
-//                ((Organisation) phonebook.get(recordToSelect)).printInfo();
-//            }
-//        }
-//
-//    }
-//
-//    public void edit(Scanner scanner) {
-//        if (phonebook.isEmpty()) {
-//            System.out.println("No records to edit!");
-//        } else {
-//            int recordToSelect = findRecordToSelect(scanner) - 1;
-//
-//            if (phonebook.get(recordToSelect) instanceof Contact) {
-//                editContact(scanner, (Contact) phonebook.get(recordToSelect));
-//            } else if (phonebook.get(recordToSelect) instanceof Organisation) {
-//                editOrganisation(scanner, (Organisation) phonebook.get(recordToSelect));
-//            }
-//            System.out.println("The record updated!");
-//
-//        }
-//    }
-//
-//                System.out.print("Invalid section!");
-//                break;
-//
-//
-//    private int findRecordToSelect(Scanner scanner) {
-//        int i = 1;
-//        for (ContactInfo contactInfo : phonebook) {
-//            System.out.println(i + ". " + contactInfo.toString());
-//            i++;
-//        }
-//        System.out.print("Select a record: ");
-//        return Integer.parseInt(scanner.nextLine());
-//
-//    }
-//
