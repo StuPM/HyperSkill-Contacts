@@ -9,7 +9,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.lang.Integer.parseInt;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
 
 public class ContactBook {
@@ -105,7 +104,7 @@ public class ContactBook {
             search(scanner);
         } else {
             for (ContactInformation CI : contactInformation) {
-                if (CI.getName().equals(tempCI.get(Integer.parseInt(input)-1).getName())){
+                if (CI.getName().equals(tempCI.get(Integer.parseInt(input) - 1).getName())) {
                     CI.printInfo();
                     recordInformation(CI, scanner);
                 }
@@ -181,7 +180,6 @@ public class ContactBook {
         switch (input) {
             case "edit":
                 editRecord(tempCI, scanner);
-                tempCI.printInfo();
                 recordInformation(tempCI, scanner);
                 break;
             case "delete":
@@ -195,65 +193,13 @@ public class ContactBook {
     }
 
     private void editRecord(ContactInformation tempCI, Scanner scanner) {
-        tempCI.getEditable();
-        String input = scanner.nextLine();
-
-        if (tempCI instanceof Organisation) {
-            switch (input) {
-                case "name":
-                    System.out.println("Enter name: ");
-                    input = scanner.nextLine();
-                    tempCI.setName(input);
-                    break;
-                case "address":
-                    System.out.println("Enter address: ");
-                    input = scanner.nextLine();
-                    ((Organisation) tempCI).setAddress(input);
-                    break;
-                case "number":
-                    System.out.println("Enter number: ");
-                    input = scanner.nextLine();
-                    tempCI.setPhoneNumber(input);
-                    break;
-                default:
-                    break;
-            }
-
-        } else {
-            switch (input) {
-                case "name":
-                    System.out.println("Enter name: ");
-                    input = scanner.nextLine();
-                    tempCI.setName(input);
-                    break;
-                case "number":
-                    System.out.println("Enter number: ");
-                    input = scanner.nextLine();
-                    tempCI.setPhoneNumber(input);
-                    break;
-                case "surname":
-                    System.out.println("Enter surname: ");
-                    input = scanner.nextLine();
-                    ((Contact) tempCI).setSurname(input);
-                    break;
-                case "birth":
-                    System.out.println("Enter surname: ");
-                    input = scanner.nextLine();
-                    ((Contact) tempCI).setDateOfBirth(input);
-                    break;
-                case "gender":
-                    System.out.println("Enter surname: ");
-                    input = scanner.nextLine();
-                    ((Contact) tempCI).setGender(input);
-                    break;
-                default:
-                    break;
-            }
-
-        }
-
+        tempCI.getEditable(scanner);
+        tempCI.printInfo();
 
     }
+
+
+
 
     private void deleteRecord(ContactInformation tempCI) {
         contactInformation.remove(tempCI);

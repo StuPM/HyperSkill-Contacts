@@ -1,5 +1,7 @@
 package contacts;
 
+import java.util.Scanner;
+
 public class Organisation extends ContactInformation {
 
     private String address;
@@ -37,8 +39,32 @@ public class Organisation extends ContactInformation {
     }
 
     @Override
-    public void getEditable() {
+    public void getEditable(Scanner scanner) {
+
         System.out.println("Select a field (name, number, address): ");
+        String input = scanner.nextLine();
+
+        switch (input) {
+            case "name":
+                System.out.println("Enter name: ");
+                input = scanner.nextLine();
+                this.name = input;
+                break;
+            case "address":
+                System.out.println("Enter address: ");
+                input = scanner.nextLine();
+                this.address = input;
+                break;
+            case "number":
+                System.out.println("Enter number: ");
+                input = scanner.nextLine();
+                this.phoneNumber = input;
+                break;
+            default:
+                break;
+        }
+
+
     }
 
     @Override
@@ -47,6 +73,7 @@ public class Organisation extends ContactInformation {
                 this.address + " " +
                 this.phoneNumber;
     }
+
     static class Builder {
         private String name;
         private String phoneNumber;

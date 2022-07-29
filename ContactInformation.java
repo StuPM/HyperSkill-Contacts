@@ -1,6 +1,7 @@
 package contacts;
 
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 public class ContactInformation {
 
@@ -34,8 +35,8 @@ public class ContactInformation {
         this.printInfo();
     }
 
-    protected void getEditable() {
-        this.getEditable();
+    protected void getEditable(Scanner scanner) {
+        this.getEditable(scanner);
     }
 
     protected String getSearchableName() {
